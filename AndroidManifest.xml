@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="info.guardian.messenger"
+      android:versionCode="4"
+      android:versionName="0.0.4">
+    <application android:icon="@drawable/icon" android:label="@string/app_name"  android:debuggable="true">
+        <activity android:name=".OrbotTalkActivity"
+                  android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            
+            <intent-filter>
+                            <category android:name="android.intent.category.DEFAULT" />
+            
+                 <action android:name="info.guardianproject.messenger.DISPLAY_MESSAGE" />
+            </intent-filter>
+            
+            
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <data android:mimeType="*/*" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+                <data android:mimeType="*/*" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            
+            <intent-filter>
+                    <action android:name="android.intent.action.GET_CONTENT" />
+                	<data android:scheme="ohcp"  />
+               		<category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+<service android:name=".OrbotTalkService"  android:debuggable="false">
+	           
+    	</service>
+
+    </application>
+    <uses-sdk android:minSdkVersion="3" />
+
+       <uses-permission android:name="android.permission.INTERNET" />
+       <uses-permission android:name="android.permission.VIBRATE" />
+   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+ 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+ 
+
+
+</manifest> 

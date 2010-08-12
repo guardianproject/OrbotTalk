@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+
+<LinearLayout android:id="@+id/LinearLayout02" android:layout_width="fill_parent" android:layout_height="70px"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=".Onion YOU" /><EditText android:text="" android:id="@+id/txt_from" android:layout_width="fill_parent" android:layout_height="fill_parent"></EditText></LinearLayout>
+<LinearLayout android:id="@+id/LinearLayout01" android:layout_width="fill_parent" android:layout_height="70px"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=".Onion THEM:" /><EditText android:text="" android:id="@+id/txt_to" android:layout_width="fill_parent" android:layout_height="fill_parent"></EditText></LinearLayout>
+
+<LinearLayout     android:orientation="vertical"
+ android:id="@+id/LinearLayout02" android:layout_width="fill_parent" android:layout_height="200px">
+ <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Your Message" />
+ <EditText android:text="" android:gravity="top" android:id="@+id/txt_msg" android:layout_width="fill_parent" android:layout_height="fill_parent"></EditText></LinearLayout>
+
+
+
+<LinearLayout android:id="@+id/LinearLayout03" android:layout_width="wrap_content" android:layout_height="wrap_content">
+<Button android:text="Send Message" android:id="@+id/btn_send_msg" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+<Button android:text="Send File" android:enabled="false" android:id="@+id/btn_send_file" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+<Button android:text="Ping User" android:enabled="true" android:id="@+id/btn_ping" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+
+</LinearLayout>
+
+<LinearLayout android:id="@+id/LinearLayout04" android:layout_width="fill_parent" android:layout_height="50px">
+<TextView  android:id="@+id/lbl_status" android:text="Requires Orbot activated with hidden service on port 2525" android:background="#333333" android:textColor="#aaaaaa" android:layout_width="fill_parent" android:layout_height="fill_parent"></TextView>
+
+</LinearLayout>
+</LinearLayout>
