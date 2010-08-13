@@ -50,7 +50,7 @@ public class InboxServlet extends HttpServlet {
 		
 		if (sender != null)
 		{
-			mService.showToolbarNotification("New Message", sender, msg);
+			mService.showToolbarNotification("New Hidden Message", sender, msg);
 		}
 		
 		resp.setContentType("text/plain");	

@@ -226,7 +226,22 @@ public class OrbotTalkActivity extends Activity {
 	}
 
 	
-
+	private void requestHiddenService ()
+	{
+		Intent nIntent = new Intent();
+		nIntent.setAction("org.torproject.android.REQUEST_HS_PORT");
+		nIntent.putExtra("hs_port", AppConstants.ORTALK_PORT);
+		startActivityForResult(nIntent, AppConstants.ORTALK_PORT);
+		
+	}
+	
+	private void requestStartOrbot ()
+	{
+		Intent nIntent = new Intent();
+		nIntent.setAction("org.torproject.android.START_TOR");
+		startActivity(nIntent);
+		
+	}
 
 	private void startTalkService ()
 	{
@@ -410,14 +425,27 @@ public class OrbotTalkActivity extends Activity {
     }
     
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-     IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
-     if (scanResult != null) {
-        
-    	 String hostname = scanResult.getContents();
-    	 
-    	 ((EditText)findViewById(R.id.txt_to)).setText(hostname);
-    	
-      }
+	     IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
+	     if (scanResult != null) {
+	        
+	    	 String remoteHostname = scanResult.getContents();
+	    	 
+	    	 ((EditText)findViewById(R.id.txt_to)).setText(remoteHostname);
+	    	
+	      }
+	     else if (requestCode == AppConstants.ORTALK_PORT)
+	     {
+	    	 if (intent != null)
+	    	 {
+		    	 String localHostname = intent.getStringExtra("hs_host");
+		    	 
+		    	 if (localHostname != null)
+		    	 {
+		    		 ((EditText)findViewById(R.id.txt_from)).setText(localHostname);
+		    	 }
+	    	 } 
+	    	 
+	     }
     // else continue with any other code you need in the method
      }
     
@@ -431,7 +459,9 @@ public class OrbotTalkActivity extends Activity {
         
         mItem = menu.add(0, 2, Menu.NONE, "Display Code");
         
-       
+        mItem = menu.add(0, 3, Menu.NONE, "Enable Hidden Service");
+        
+        mItem = menu.add(0, 4, Menu.NONE, "Start Orbot");
        
         return true;
     }
@@ -451,6 +481,14 @@ public class OrbotTalkActivity extends Activity {
 		else if (item.getItemId() == 2)
 		{
 			displayOnionQRCode( ((EditText)findViewById(R.id.txt_from)).getText().toString());
+		}
+		else if (item.getItemId() == 3)
+		{
+			requestHiddenService();
+		}
+		else if (item.getItemId() == 4)
+		{
+			requestStartOrbot();
 		}
 		
 		
