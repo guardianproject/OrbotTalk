@@ -1,0 +1,9 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+<PreferenceCategory android:title="Orbot Hidden Service"><CheckBoxPreference android:title="Enable Hidden Services" android:summary="run servers accessible via the Tor network" android:key="pref_hs_enable"></CheckBoxPreference>
+<EditTextPreference android:summary="enter localhost ports for hidden services" android:title="Hidden Service Ports" android:enabled="false" android:key="pref_hs_ports"></EditTextPreference>
+
+<EditTextPreference android:key="pref_hs_hostname" android:summary="the addressable name for your hidden service (generated automatically)" android:title=".Onion Hostname"></EditTextPreference>
+</PreferenceCategory>
+</PreferenceScreen>
